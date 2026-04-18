@@ -18,3 +18,5 @@ settings.gradle.kts
 tsconfig.json
 yarn.lock
 src/
+*.py
+*.cpp
