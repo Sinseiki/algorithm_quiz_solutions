@@ -1,2 +1,2 @@
-# Algorithm quizzes and Solutions
-This repository contains my solutions to 10 algorithm problems from Baekjoon Online Judge (BOJ).
+# Algorithmic quizzes and Solutions
+This repository contains my solutions to 10 algorithmic problems inspired by Baekjoon Online Judge (BOJ), with problem descriptions rewritten.
