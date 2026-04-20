@@ -20,3 +20,4 @@ yarn.lock
 src/
 *.py
 *.cpp
+old/
