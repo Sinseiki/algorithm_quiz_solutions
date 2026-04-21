@@ -27,7 +27,7 @@
 
    The DP table is constructed as follows:
 
-     ∅ A B C B D A B 
+  ...∅ A B C B D A B 
    ∅ 0 0 0 0 0 0 0 0
     B 0 0 1 1 1 1 1 1
     D 0 0 1 1 1 2 2 2
@@ -41,11 +41,11 @@
 
   4. Transition rule:
 
-    - If the current characters match:
+   - If the current characters match:
       dp[i][j] = dp[i-1][j-1] + 1
       (extend the subsequence from the diagonal)
 
-    - If they do not match:
+   - If they do not match:
       dp[i][j] = max(dp[i-1][j], dp[i][j-1])
       (carry forward the best result from top or left)
 

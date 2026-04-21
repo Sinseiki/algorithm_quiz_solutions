@@ -51,16 +51,16 @@
 
   6. Transition rule:
 
-    - If `s1[i] == s2[j]`,
-      take the diagonal value and add 1:
+   - If `s1[i] == s2[j]`,
+     take the diagonal value and add 1:
 
-      dp[(i + 1, j + 1)] = dp[(i, j)] + 1
+     dp[(i + 1, j + 1)] = dp[(i, j)] + 1
 
-    - Otherwise,
-      take the larger value between left and upper:
+   - Otherwise,
+     take the larger value between left and upper:
 
-      dp[(i + 1, j + 1)] =
-      max(dp[(i + 1, j)], dp[(i, j + 1)])
+     dp[(i + 1, j + 1)] =
+     max(dp[(i + 1, j)], dp[(i, j + 1)])
 
   7. After the table is fully filled,
    the last cell contains the LCS length.
@@ -83,19 +83,19 @@
       so the current characters belong to one LCS
 
   10. In that diagonal case,
-    the matched characters are checked as:
+   the matched characters are checked as:
 
-    s1[i - 1] == s2[j - 1]
+   s1[i - 1] == s2[j - 1]
 
-    This is because the DP table is shifted by one row and one column,
-    while the strings themselves are 0-indexed.
+   This is because the DP table is shifted by one row and one column,
+   while the strings themselves are 0-indexed.
 
-    Since the trace runs from the end of the strings toward the beginning,
-    matched characters are collected in reverse order.
-    So each matched character is pushed into the result array first,
-    and the array is reversed at the end.
+   Since the trace runs from the end of the strings toward the beginning,
+   matched characters are collected in reverse order.
+   So each matched character is pushed into the result first,
+   and the result is reversed at the end.
 
-  11. Finally, reverse the collected array,
+  11. Finally, reverse the collected result,
     join it into a string, and print the reconstructed LCS.
     
   The DP table construction takes O(nm) time,
