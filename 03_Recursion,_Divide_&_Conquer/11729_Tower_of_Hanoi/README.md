@@ -45,7 +45,8 @@
    - First move n - 1 disks from the source rod to the auxiliary rod.
    - Then move the largest remaining disk from the source rod to the destination rod.
    - Finally move the n - 1 disks from the auxiliary rod to the destination rod.
-     ( For a visual demonstration of the movement process, see [this](https://sinseiki.github.io/tower-of-hanoi-autoplay/hanoi_pause.html). )
+     ( For a visual demonstration of the movement process, see this 
+     (https://sinseiki.github.io/tower-of-hanoi-autoplay/hanoi_pause.html). )
   8. Store every move as a string in the result instead of printing immediately.
     This avoids repeated console output overhead and allows all lines to be printed at once.
   9. After the recursion finishes, print the complete result.
