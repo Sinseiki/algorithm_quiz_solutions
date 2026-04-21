@@ -24,15 +24,20 @@
 <details>
   <summary>- Solution approach:</summary>
   <pre>
-  1. Read the number of elements and target sequence length from input, then read the list of distinct numbers.
-  2. Sort the numbers so that sequences can be generated in non-decreasing and lexicographical order.
-  3. Since repeated choices are allowed, the sequence can be constructed recursively, increasing the depth at each step. This makes it suitable for a recursive backtracking approach.
+  1. Read the number of elements and target sequence length from input,
+    then read the list of distinct numbers.
+  2. Sort the numbers so that sequences can be generated in non-decreasing
+     and lexicographical order.
+  3. Since repeated choices are allowed, the sequence can be constructed recursively,
+     increasing the depth at each step. This makes it suitable
+     for a recursive backtracking approach.
   4. Use recursive backtracking to build the sequences:
     - Define a recursive function `dfs(start, depth)` where:
       - `dfs` is the recursive function that builds the sequences with Depth-First Search,
       - `start` is the starting index in the sorted array,
       - `depth` is the current depth of the recursion,
-    - If depth becomes greater than targetLength, the current sequence is complete, so join it into a string and store it in the result list.
+    - If depth becomes greater than targetLength, the current sequence is complete, 
+      so join it into a string and store it in the result list.
     - Otherwise, iterate from `start` to the end of the array:
       - Add the current number to `sequence`,
       - Recursively call dfs(i, depth + 1) so that the same index can be chosen again.

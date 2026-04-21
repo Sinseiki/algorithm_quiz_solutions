@@ -13,12 +13,17 @@
   <summary>- Solution approach:</summary>
   <pre>
   1. Read M and N from input and convert them to integers.
-  2. A brute-force approach would be to check each number from M to N individually for primality by testing divisibility up to its square root. However, this would be inefficient for large N (up to 1,000,000), with a time complexity of O(N√N).
-  3. Instead, create an array `a` of size N, initialized with 1s. Each element `a[i]` indicates whether the number `i + 1` is prime (1) or not (0).
+  2. A brute-force approach would be to check each number from M to N individually 
+    for primality by testing divisibility up to its square root. 
+    However, this would be inefficient for large N (up to 1,000,000), with a time complexity of O(N√N).
+  3. Instead, create an array `a` of size N, initialized with 1s.
+    Each element `a[i]` indicates whether the number `i + 1` is prime (1) or not (0).
   4. Apply the Sieve of Eratosthenes:
      - Start from 2, the smallest prime number, and mark all of its multiples as non-prime.
-     - Continue this process for each number up to √N. If a number is still marked as prime, mark all of its multiples as non-prime.
+     - Continue this process for each number up to √N. If a number is still marked as prime,
+       mark all of its multiples as non-prime.
   5. Finally, iterate through the array and print all numbers `i + 1` such that `i + 1 >= M` and `a[i] == 1`.
-     The sieve runs in O(N log log N), and the final scan runs in O(N), which is efficient enough for the given constraints.
+     The sieve runs in O(N log log N), and the final scan runs in O(N),
+     which is efficient enough for the given constraints.
   </pre>
 </details>
