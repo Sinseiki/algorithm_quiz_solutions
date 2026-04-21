@@ -1,37 +1,37 @@
-- Inspired by: [BOJ 2749](https://www.acmicpc.net/problem/2749) (Gold II)
+- Inspired by: [BOJ 1018](https://www.acmicpc.net/problem/1018) (Silver III)
 
-- Problem type: Math / Dynamic Programming / Pisano Period
+- Problem type: Brute-force / Implementation
 
 - Goal:
-  Compute the n-th Fibonacci number modulo 1,000,000.
+  Find the minimum number of repaint operations required.
 
 - Summary:
-  Given a very large n, find the n-th Fibonacci number modulo 1,000,000.
-  Since n can be as large as 10^18, the sequence must be reduced using the Pisano period.
+  Given a board of 'W' and 'B' cells, determine the minimum repaint operations needed to convert any 8×8 section into a valid checkerboard.
 
 - Input format:
-  - The first line contains a natural number n.
+  - The first line contains two integers representing the board dimensions.
+  - The following lines describe the board.
 
 - Output:
-  - The value of F(n) modulo 1,000,000.
+  - The minimum number of repaint operations.
 
 ---
 <details>
   <summary>- Solution approach:</summary>
   <pre>
-  1. Read n from input as BigInt, since the input size can exceed the safe integer range of JavaScript Number.
-  2. Use the Pisano period for modulo 1,000,000, which is 1,500,000.
-  3. Reduce n by computing n % 1,500,000, because Fibonacci numbers modulo 1,000,000 repeat with that period.
-  4. Initialize two variables to represent consecutive Fibonacci values:
-   - f1 = F(0)
-   - f2 = F(1)
-  5. Iterate from 1 up to n - 1, updating the pair step by step.
-  6. At each step, compute the next Fibonacci value with modulo 1,000,000 applied immediately
-    so the numbers never grow too large.
-  7. This works because
-    (a + b) % m = ((a % m) + (b % m)) % m,
-    so taking the modulo during the recurrence preserves the correct final remainder.
-  8. Handle n = 0 separately, since the loop structure assumes F(1) is already prepared.
-  9. Print the resulting Fibonacci value modulo 1,000,000.
+  1. Read the board dimensions and the board rows from input.
+  2. Store the two checkerboard row patterns in advance:
+   - one row starting with 'W',
+   - and the other starting with 'B'.
+  3. Use `patternType` to switch between the two possible checkerboard types
+    instead of constructing separate 8×8 boards.
+  4. Iterate over every possible top-left position of an 8×8 section.
+  5. For each section, compare the original board directly
+    against the expected pattern without slicing or copying the section
+    into a new board.
+  6. Use `(y + patternType) % 2` to choose which checkerboard row pattern should be matched at the current row.
+  7. Count how many cells differ inside the current 8×8 section.
+  8. After finishing one section, update the minimum repaint count immediately.
+  9. Print the smallest repaint count found.
   </pre>
 </details>
