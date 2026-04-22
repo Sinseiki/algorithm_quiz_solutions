@@ -1,4 +1,4 @@
-- Inspired by: [BOJ 14425] (Silver IV)
+- Inspired by: [BOJ 14425](https://www.acmicpc.net/problem/14425) (Silver IV)
 
 - Problem type: Data Structures (HashSet) / Membership Query
 
