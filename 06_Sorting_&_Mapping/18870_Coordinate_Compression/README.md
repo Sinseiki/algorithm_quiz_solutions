@@ -1,10 +1,8 @@
 - Inspired by: [BOJ 18870](https://www.acmicpc.net/problem/18870) (Silver II)
 
-- Problem type:
-  Coordinate Compression / Sorting
+- Problem type: Coordinate Compression / Sorting
 
-- Goal:
-  Replace each value with its relative rank among distinct values.
+- Goal: replace each value with its relative rank among distinct values.
 
 - Summary:
   A list of integers is given.

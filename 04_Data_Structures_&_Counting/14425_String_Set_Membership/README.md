@@ -1,5 +1,7 @@
 - Inspired by: [BOJ 14425] (Silver IV)
 
+- Problem type: Data Structures (HashSet) / Membership Query
+
 - Goal: given a reference collection of strings and a list of candidate strings, determine how many of the candidates are present in the reference collection.
 
 - Summarize:

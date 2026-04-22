@@ -1,6 +1,6 @@
 - Inspired by: [BOJ 2447](https://www.acmicpc.net/problem/2447) (Gold V)
 
-- Problem type: Problem type: Divide and Conquer / Fractal Pattern
+- Problem type: Divide and Conquer / Fractal Pattern
 
 - Goal: print an `N x N` star pattern where the center block is recursively removed at each scale of 3
 

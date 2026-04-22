@@ -1,5 +1,7 @@
 - Inspired by: [BOJ 2839](https://www.acmicpc.net/problem/2839) (Silver IV)
 
+- Problem type: Greedy / Mathematical (Linear Combination)
+
 - Goal: find the minimum number of units to exactly form a given integer N using two fixed unit sizes.
 
 - Summarize:

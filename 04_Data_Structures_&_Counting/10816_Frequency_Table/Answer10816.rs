@@ -1,12 +1,12 @@
+use std::io::{stdin, Read};
 use std::collections::HashMap;
 
 fn main(){
-  let inputs:Vec<String> = (0 .. 4).map(|_| {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).unwrap();
-    s.trim().to_string()}).collect();
-  let first_list:Vec<&str> = inputs[1].split(" ").collect();
-  let query_list:Vec<&str> = inputs[3].split(" ").collect();
+  let mut s = String::new();
+  stdin().read_to_string(&mut s).unwrap();
+  let inputs: Vec<&str> = s.split('\n').collect();
+  let first_list:Vec<&str> = inputs[1].split_whitespace().collect();
+  let query_list:Vec<&str> = inputs[3].split_whitespace().collect();
 
   let mut frequency_table:HashMap<&str, i32> = HashMap::new();
   for it in first_list {

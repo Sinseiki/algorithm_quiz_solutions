@@ -1,5 +1,7 @@
 - Inspired by: [BOJ 10816](https://www.acmicpc.net/problem/10816) (Silver IV)
 
+- Problem type: Data Structures / Hash Map (Frequency Counting)
+
 - Goal: given a list of integers and a separate list of query values, determine how many times each query value appears in the original list, in the same order as the query list.
 
 - Summarize:

@@ -1,15 +1,13 @@
+use std::io::{stdin, Read};
 use std::collections::HashMap;
-use std::io::stdin;
 use std::fmt::Write;
 
 fn main(){
   let mut s = String::new();
-  stdin().read_line(&mut s).unwrap();
-  let n:usize = s.trim().parse().unwrap();
-  let mut nums:Vec<i32>=(0 ..n).map(|_|{
-    let mut s= String::new();
-    stdin().read_line(&mut s).unwrap();
-    s.trim().parse::<i32>().unwrap()}).collect();
+  stdin().read_to_string(&mut s).unwrap();
+  let inputs:Vec<i32>= s.split_whitespace().map(|x| x.parse().unwrap()).collect();
+  let n:usize = inputs[0] as usize;
+  let mut nums:Vec<i32> = inputs[1..].to_vec();
   nums.sort();
 
   let mut counts_obj:HashMap<i32, i32> = HashMap::new();
