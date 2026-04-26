@@ -12,11 +12,9 @@ fn main(){
       dp[(i + 1) * s2_length_plus1 + j + 1] =
           if s1_byte[i] == s2_byte[j] {
             dp[i * s2_length_plus1 + j] + 1
-          } else {
-            if dp[(i + 1) * s2_length_plus1 + j] > dp[i * s2_length_plus1 + j + 1] {
-              dp[(i + 1) * s2_length_plus1 + j]
-            } else {dp[i * s2_length_plus1 + j + 1]}
-          }
+          } else if dp[(i + 1) * s2_length_plus1 + j] > dp[i * s2_length_plus1 + j + 1] {
+            dp[(i + 1) * s2_length_plus1 + j]
+          } else {dp[i * s2_length_plus1 + j + 1]}
     }
   }
   println!("{}", dp[s1_length_plus1 * s2_length_plus1 - 1]);

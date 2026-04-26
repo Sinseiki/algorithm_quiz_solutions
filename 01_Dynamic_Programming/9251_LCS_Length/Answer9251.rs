@@ -10,11 +10,9 @@ fn main(){
     let mut diagonal_x = 0;
     for x in 1 ..= s1_length {
       let upper_x = tmp_row[x];
-      tmp_row[x] = if &s1.as_bytes()[x - 1] == &s2.as_bytes()[y - 1]{
+      tmp_row[x] = if s1.as_bytes()[x - 1] == s2.as_bytes()[y - 1]{
         diagonal_x + 1
-      } else {
-        if tmp_row[x - 1] > tmp_row[x] {tmp_row[x - 1]} else {tmp_row[x]}
-      };
+      } else if tmp_row[x - 1] > tmp_row[x] {tmp_row[x - 1]} else {tmp_row[x]};
       diagonal_x = upper_x;
     }
   }

@@ -17,7 +17,7 @@ fn main(){
       for start_x in 0 ..= width - 8 {
         let mut paint_count = 0;
         for y in start_y .. start_y + 8 {
-          for x in 0 as usize .. 8 as usize {
+          for x in 0usize..8usize {
             if patterns[(y + pattern_type) % 2][x .. x + 1] != board[y][start_x + x .. start_x + x + 1] {
               paint_count += 1;
             }

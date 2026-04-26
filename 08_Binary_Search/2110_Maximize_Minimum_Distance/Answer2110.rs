@@ -3,8 +3,8 @@ use std::io::{stdin, Read};
 fn main(){
   let mut s = String::new();
   stdin().read_to_string(&mut s).unwrap();
-  let inputs:Vec<&str> = s.trim().split("\n").collect();
-  let lengths:Vec<usize> = inputs.get(0).unwrap().trim().split(" ").map(|x| x.parse().unwrap()).collect();
+  let inputs:Vec<&str> = s.trim().split('\n').collect();
+  let lengths:Vec<usize> = inputs.first().unwrap().trim().split(' ').map(|x| x.parse().unwrap()).collect();
   let points_length = lengths[0];
   let elements_length = lengths[1];
   let mut int_points:Vec<i32> = inputs[1..].iter().map(|x| x.parse().unwrap()).collect();

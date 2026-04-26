@@ -12,7 +12,7 @@ fn main(){
     s.trim().to_string()}).collect();
   let strs_set:HashSet<String> = strs.iter().cloned().collect();
   let mut result_int = 0;
-  for i in n .. n + m {
+  for _ in n .. n + m {
     let mut s = String::new();
     stdin().read_line(&mut s).unwrap();
     if strs_set.contains(s.trim()) {result_int += 1;}

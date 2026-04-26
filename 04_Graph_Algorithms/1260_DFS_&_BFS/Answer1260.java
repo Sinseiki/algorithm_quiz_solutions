@@ -49,7 +49,7 @@ public class Answer1260 {
 
     var dfsResult = new ArrayList<Integer>();
 
-    Answer1260.dfsRecursion(startVertex, sortedEdges, dfsResult, dfsVisited);
+    dfsRecursion(startVertex, sortedEdges, dfsResult, dfsVisited);
     System.out.println(dfsResult.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
 
@@ -59,7 +59,7 @@ public class Answer1260 {
     bfsIsFound[startVertex - 1] = true;
     int bfsFoundPointer = 0;
 
-    Answer1260.bfsFinder(bfsFoundPointer, bfsFound, sortedEdges, bfsIsFound, bfsResult);
+    bfsFinder(bfsFoundPointer, bfsFound, sortedEdges, bfsIsFound, bfsResult);
     System.out.println(bfsResult.stream().map(String::valueOf).collect(Collectors.joining(" ")));
   }
 }

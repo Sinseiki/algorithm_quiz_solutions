@@ -12,12 +12,11 @@ fn main(){
 
   let mut counts_obj:HashMap<i32, i32> = HashMap::new();
 
-  for i in 0 .. n {
-    let it = nums[i];
+  for it in &nums {
     if counts_obj.contains_key(&it) {
       *counts_obj.get_mut(&it).unwrap() += 1;
     } else {
-      counts_obj.insert(it, 1);
+      counts_obj.insert(*it, 1);
     }
   }
 

@@ -7,13 +7,13 @@ fn main(){
   let inputs:Vec<&str> = s.trim().split('\n').collect();
   let lengths:Vec<usize> = inputs[0].split_whitespace().map(|x| x.parse::<usize>().unwrap()).collect();
   let (vertices_length, edges_length, start_vertex) = (lengths[0], lengths[1], lengths[2]);
-    let mut edges = vec![Vec::new(); vertices_length];
+  let mut edges = vec![Vec::new(); vertices_length];
   for i in 1 ..= edges_length {
     let it:Vec<usize> = inputs[i].split_whitespace().map(|x| x.parse().unwrap()).collect();
     edges[it[0] - 1].push(it[1]);
     edges[it[1] - 1].push(it[0]);
   }
-  for mut it in &mut edges {it.sort();}
+  for it in &mut edges {it.sort();}
 
   let sorted_edges:Vec<Vec<usize>> = edges;
   let mut dfs_visited:Vec<bool> = vec![false; vertices_length];
@@ -39,13 +39,13 @@ fn main(){
   let mut bfs_found:Vec<usize> = Vec::new();
   bfs_found.push(start_vertex);
   bfs_is_found[start_vertex - 1] = true;
-  let mut bfs_found_pointer = 0;
+  let bfs_found_pointer = 0;
 
-  fn bfs_finder(mut bfs_found_pointer:usize, bfs_found:&mut Vec<usize>, sorted_edges:Vec<Vec<usize>>, bfs_is_found:&mut Vec<bool>, bfs_result:&mut String) {
+  fn bfs_finder(mut bfs_found_pointer:usize, bfs_found:&mut Vec<usize>, sorted_edges:Vec<Vec<usize>>, bfs_is_found:&mut [bool], bfs_result:&mut String) {
     while bfs_found_pointer < bfs_found.len() {
       for it in &sorted_edges[bfs_found[bfs_found_pointer] - 1] {
         if !bfs_is_found[it - 1] {
-          bfs_found.push(it.clone());
+          bfs_found.push(*it);
           bfs_is_found[it - 1] = true;
         }
       }
