@@ -1,4 +1,4 @@
-  - Inspired by: [BOJ 1504]
+  - Inspired by: [BOJ 1504](https://www.acmicpc.net/problem/1504) (Gold IV)
 
   - Problem type: Graph Algorithms / Shortest Path (Dijkstra) / Path Composition
 
