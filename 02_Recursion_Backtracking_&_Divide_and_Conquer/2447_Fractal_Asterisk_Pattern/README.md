@@ -45,6 +45,8 @@
 <details>
   <summary>- Solution approach (Coordinate Checking):</summary>
   <pre>
+  - The coordinate-based approach was derived from the same recursive structure,
+  but evaluates each position independently instead of explicitly constructing subproblems.
   1. Read `N` from standard input.
   2. Traverse every coordinate `(y, x)` directly in the `N x N` grid,
      constructing the output line by line to reduce memory usage.
