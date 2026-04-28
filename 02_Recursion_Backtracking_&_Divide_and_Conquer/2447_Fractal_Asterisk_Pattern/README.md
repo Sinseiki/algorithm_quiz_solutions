@@ -10,40 +10,64 @@
   
 - Output:
     - The recursive star pattern of size `N`
-  
+
+
 <details>
-<summary>- Solution approach:</summary>
+  <summary>- Solution approach (String Expansion):</summary>
   <pre>
   1. Read `N` from standard input.
-  2. A natural first idea is to construct the pattern recursively:
+  2. Start from the base pattern of size 3:
     ***
     * *
     ***
-   and expand it to larger sizes.
-   However, this approach repeatedly rebuilds large intermediate strings.
-  3. Another idea is to build a 2D grid and progressively carve out
-   the blank regions from smaller patterns to larger ones.
-   However, this approach requires repeatedly scanning the entire grid
-   at each scale, resulting in redundant computations.
-  4. Instead, traverse every coordinate `(y, x)` directly in the `N x N` grid,
-   constructing the output line by line.
-  5. For each row, build a temporary string `line`.
-  6. For each coordinate, copy `y` and `x` into temporary variables
+  3. Store the current pattern as a list of row strings.
+  4. While the current size is smaller than `N`, expand each row
+   into the next 3-times larger pattern.
+  5. For each row in the current pattern:
+    - the `t123` (top and bottom) sections are created by repeating the row 3 times
+    - the `t456` (middle) section is created by placing a blank block between
+      two copies of the row
+  6. Combine the sections in this order:
+    - `t123` (top)
+    - `t456` (middle)
+    - `t123` (bottom)
+  7. Replace the current pattern with the newly expanded pattern.
+  8. After reaching size `N`, print all rows joined by newline characters.
+  - Time complexity is O(N^2), since the total amount of generated output
+    is proportional to the final N x N pattern.
+  - Space complexity is O(N^2), since the full pattern is stored in memory.
+  - This approach is efficient in practice because it expands the pattern
+    by copying row strings in blocks instead of checking every coordinate
+    across recursive levels.
+  </pre>
+</details>
+
+<details>
+  <summary>- Solution approach (Coordinate Checking):</summary>
+  <pre>
+  1. Read `N` from standard input.
+  2. Traverse every coordinate `(y, x)` directly in the `N x N` grid,
+     constructing the output line by line to reduce memory usage.
+  3. For each row, build a temporary string `line`.
+  4. For each coordinate, copy `y` and `x` into temporary variables
    `tmpY` and `tmpX`, then repeatedly divide them by 3.
-  7. At each step, check whether the current position falls into
+  5. At each step, check whether the current position falls into
    the center block of a 3 x 3 partition:
-    - if `tmpY % 3 == 1` and `tmpX % 3 == 1`,
-      that cell belongs to a blank region
-    - append a space and stop checking further
-  8. This effectively determines whether the coordinate becomes blank
-   at any recursive scale, by shrinking the coordinates themselves.
+  - if `tmpY % 3 == 1` and `tmpX % 3 == 1`,
+    that cell belongs to a blank region
+  - append a space and stop checking further
+  6. This determines whether the coordinate becomes blank at any
+   recursive scale by shrinking the coordinates themselves.
    It directly reflects the self-similar structure of the pattern.
-  9. If no level places the coordinate in a center block,
+  7. If no level places the coordinate in a center block,
    append `*` to the current row.
-  10. After completing one row, print the row immediately.
-  - Time complexity is O(N^2 log N), since each of the N^2 cells
-  may be checked across recursive levels.
-  - Space complexity is reduced to O(N) by constructing and emitting
-  each row on demand, instead of keeping the entire N x N buffer.
+  8. After completing one row, print the row immediately.
+    - Time complexity is O(N^2 log N), since each of the N^2 cells
+    may be checked across recursive levels.
+    - Space complexity is reduced to O(N), since only one output row
+    is constructed at a time.
+    - Trade-off: Compared to the string-expansion approach, this method
+    is slower due to repeated coordinate checks, but it uses less memory
+    and makes the blank-region rule explicit in code.
   </pre>
 </details>

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Answer2447 {
+public class Answer2447cc {
   public static void main(String[] args) {
     int n = new Scanner(System.in).nextInt();
 
